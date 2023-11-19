@@ -264,7 +264,7 @@ def get_id_parse_latin(word, input):
     return output
 def get_id_latin(word):
     #search the lemmaDF for the word
-    lemmaDF = pd.read_csv("Dictionary_Dataframes/lemmas.csv", sep = "\t")
+    lemmaDF = pd.read_csv("Dictionary_Dataframes/lemmas.csv", sep = "{")
     del lemmaDF['Unnamed: 0']
     output = []
     #this is the dataframe of all rows with the word
@@ -519,7 +519,8 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
         
 
 if(__name__ == '__main__'):
-    os.chdir("Individual/Leipzig-Research/Lemmatizer-GRK")
+    #os.chdir("Individual/Leipzig-Research/Lemmatizer-GRK")
     print(os.getcwd())
     print("hello")
     print(get_greek_form("λεγω", mood = "indicative", tense = "present", voice = "active", person = "third", number = "singular"))
+    print(get_latin_form("mater", gender = "f", number = "p", case = "a"))
