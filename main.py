@@ -1,11 +1,29 @@
-import flask as fl
+from flask import Flask, render_template, request
 from getForm import get_latin_form, get_greek_form
 
-app = fl.Flask(__name__)
+app = Flask(__name__)
 
+"""
 @app.route('/', methods=['GET', 'POST'])
 def home():
     return get_latin_form("mater", gender = "f", number = "p", case = "a")
+"""
+@app.route('/')
+def home():
+    return render_template("index.html")
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == "POST":
+        word = request.form["wd"]
+        case = request.form["case"]
+        gender = request.form["gender"]
+        number = request.form["number"]
+        return get_latin_form(word, case = case, number = number, gender = gender)
+    else:
+        return render_template("form.html")
+
+
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
