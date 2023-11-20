@@ -3,11 +3,6 @@ from getForm import get_latin_form, get_greek_form
 
 app = Flask(__name__)
 
-"""
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    return get_latin_form("mater", gender = "f", number = "p", case = "a")
-"""
 @app.route('/')
 def home():
     return render_template("index.html")

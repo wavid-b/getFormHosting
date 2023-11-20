@@ -1,22 +1,24 @@
 <html>
 <head>
 <script src="../static/app.js"></script>
+<link rel="stylesheet" href="../static/style.css">
 </head>
 <form action="#" method = "post">
     <p>Word:</p>
     <p><input type="text" name="wd" /></p>
 
-    <p><label for="wanted_pos" onchange="posCheck(this);">Part of Speech:</label>
-      <select name="wanted_pos" id="wanted_pos">
+    <p><label for="wanted_pos">Part of Speech:</label>
+      <select onchange="posCheck(this);" name="wanted_pos" id="wanted_pos">
         <option value="NULL" selected></option>
         <option value="noun">Noun</option>
         <option value="verb">Verb</option>
-        <option value="adjective">Adjective</option>
         <option value="adverb">Adverb</option>
+        <option value="adjective">Adjective</option>
       </select>
     </p>
 
-<div id="noun" style="display: none;">
+<!-- Noun Options -->
+<div id="noun" style="display: none">
     <p><label for="case">Case:</label>
         <select name="case" id="case">
           <option value="NULL" selected></option>
@@ -47,6 +49,16 @@
         </select>
     </p>
 </div>
+
+<!-- Verb Options -->
+<div id="verb" style="display: none">
+    <p><label for="number">Number:</label>
+      <select name="number" id="number">
+        <option value="NULL" selected></option>
+        <option value="singular">Singular</option>
+        <option value="plural">Plural</option>
+      </select>
+    </p>
 
     <p><label for="mood">Mood:</label>
         <select name="mood" id="mood">
@@ -88,7 +100,10 @@
         <option value="passive">Passive</option>
       </select>
     </p>
+</div>
 
+<!-- Adverb Options -->
+<div id="adverb" style="display: none">
     <p><label for="degree">Degree:</label>
       <select name="degree" id="degree">
         <option value="NULL" selected></option>
@@ -97,6 +112,51 @@
         <option value="superlative">Superlative</option>
       </select>
     </p>
+</div>
+
+<!-- Adjective Options -->
+<div id="adjective" style="display: none">
+  <p><label for="case">Case:</label>
+      <select name="case" id="case">
+        <option value="NULL" selected></option>
+        <option value="nominative">Nominative</option>
+        <option value="genitive">Genitive</option>
+        <option value="dative">Dative</option>
+        <option value="accusative">Accusative</option>
+        <option value="ablative">Ablative</option>
+        <option value="vocative">Vocative</option>
+        <option value="locative">Locative</option>
+      </select>
+  </p>
+
+  <p><label for="gender">Gender:</label>
+      <select name="gender" id="gender">
+        <option value="NULL" selected></option>
+        <option value="masculine">Masculine</option>
+        <option value="feminine">Feminine</option>
+        <option value="neuter">Neuter</option>
+      </select>
+  </p>
+
+  <p><label for="number">Number:</label>
+      <select name="number" id="number">
+        <option value="NULL" selected></option>
+        <option value="singular">Singular</option>
+        <option value="plural">Plural</option>
+      </select>
+  </p>
+
+  <p><label for="degree">Degree:</label>
+    <select name="degree" id="degree">
+      <option value="NULL" selected></option>
+      <option value="positive">Positive</option>
+      <option value="comparative">Comparative</option>
+      <option value="superlative">Superlative</option>
+    </select>
+  </p>
+</div>
+
+
 
     <!--
     def get_greek_form(word = "NULL", id = "NULL", case = "NULL",
@@ -106,7 +166,7 @@
     #check if word is null - use ID in that case
     -->
 
-    <p><input type="submit" value="submit" /></p>
+    <p><input type="submit" value="Morph" /></p>
 
     <p>{{result}}</p>
 
