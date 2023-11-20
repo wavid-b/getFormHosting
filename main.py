@@ -44,4 +44,4 @@ result = get_latin_form(request.form["wd"], case = request.form["case"], number 
 """
 
 if __name__ == "__main__":
-    app.run(port=8000, debug=True)
+    app.run(host = "10.0.0.102", port=8000, debug=True)
