@@ -20,15 +20,15 @@ def form():
             result = get_latin_form(request.form["wd"], case = "NULL", number = request.form["number"], gender = "NULL",
                                     mood = request.form["mood"], person = request.form["person"], tense = request.form["tense"],
                                     voice = request.form["voice"], degree = "NULL", wanted_pos = request.form["wanted_pos"])
+            
+        elif request.form["wanted_pos"] == "adjective": #takes gender, number, case, degree
+            result = get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
+                                    mood = "NULL", person = "NULL", tense = "NULL",
+                                    voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
 
         """
         elif request.form["wanted_pos"] == "adverb": #takes degree
             result = get_latin_form(request.form["wd"], case = "NULL", number = "NULL", gender = "NULL",
-                                    mood = "NULL", person = "NULL", tense = "NULL",
-                                    voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
-            
-        elif request.form["wanted_pos"] == "adjective": #takes gender, number, case, degree
-            result = get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
                                     mood = "NULL", person = "NULL", tense = "NULL",
                                     voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
         """
