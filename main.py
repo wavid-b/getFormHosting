@@ -15,15 +15,11 @@ def home():
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     if request.method == "POST":
-        word = request.form["wd"]
-        case = request.form["case"]
-        gender = request.form["gender"]
-        number = request.form["number"]
-        return get_latin_form(word, case = case, number = number, gender = gender)
+        return get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
+                              mood = request.form["mood"], person = request.form["person"], tense = request.form["tense"],
+                              voice = request.form["voice"], degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
     else:
         return render_template("form.html")
-
-
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
