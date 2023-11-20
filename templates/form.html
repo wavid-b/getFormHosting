@@ -1,20 +1,22 @@
-{% block title %}Form Page{% endblock %}
-
-{% block content %}
+<html>
+<head>
+<script src="../static/app.js"></script>
+</head>
 <form action="#" method = "post">
     <p>Word:</p>
     <p><input type="text" name="wd" /></p>
 
-    <p><label for="wanted_pos">Part of Speech:</label>
+    <p><label for="wanted_pos" onchange="posCheck(this);">Part of Speech:</label>
       <select name="wanted_pos" id="wanted_pos">
         <option value="NULL" selected></option>
-        <option value="positive">Noun</option>
-        <option value="comparative">Verb</option>
-        <option value="superlative">Adjective</option>
-        <option value="superlative">Adverb</option>
+        <option value="noun">Noun</option>
+        <option value="verb">Verb</option>
+        <option value="adjective">Adjective</option>
+        <option value="adverb">Adverb</option>
       </select>
     </p>
 
+<div id="noun" style="display: none;">
     <p><label for="case">Case:</label>
         <select name="case" id="case">
           <option value="NULL" selected></option>
@@ -44,6 +46,7 @@
           <option value="plural">Plural</option>
         </select>
     </p>
+</div>
 
     <p><label for="mood">Mood:</label>
         <select name="mood" id="mood">
@@ -104,5 +107,8 @@
     -->
 
     <p><input type="submit" value="submit" /></p>
+
+    <p>{{result}}</p>
+
 </form>
-{% endblock %}
+</html>
