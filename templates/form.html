@@ -5,8 +5,8 @@
 </head>
 <form action="#" method = "post">
     <h2>Latin Lemmatizer</h2>
-    <p>Word:</p>
-    <p><input type="text" name="wd" /></p>
+    <p><label for="wd">Word:</label>
+    <input type="text" name="wd" /></p>
 
     <p><label for="wanted_pos">Part of Speech:</label>
       <select onchange="posCheck(this);" name="wanted_pos" id="wanted_pos">
@@ -171,7 +171,7 @@
 
     <p><input type="submit" value="Morph" /></p>
 
-    <p>{{result}}</p>
+    <p>{{query}} {{arrow}} {{result}}</p>
 
 </form>
 </html>

@@ -32,10 +32,10 @@ def form():
                                     mood = "NULL", person = "NULL", tense = "NULL",
                                     voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
         """
-        
-        return render_template("form.html", result = result)
+
+        return render_template("form.html", query = request.form["wd"], arrow = "=>", result = result)
     else:
-        return render_template("form.html", result = "")
+        return render_template("form.html", query = "", arrow = "", result = "")
     
 """
 result = get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
