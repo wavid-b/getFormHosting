@@ -1,16 +1,30 @@
 function posCheck(that) {
-    // hide all elements
-    document.getElementsByClassName("noun")[0].style.display = "none";
-    document.getElementsByClassName("verb")[0].style.display = "none";
-    document.getElementsByClassName("adjective")[0].style.display = "none";
+    // hide all
+    const noun = document.getElementsByClassName("noun");
+    for (let i = 0; i < noun.length; i++) {
+        noun[i].style.display = "none";
+    }
+    const verb = document.getElementsByClassName("verb");
+    for (let i = 0; i < verb.length; i++) {
+        verb[i].style.display = "none";
+    }
+    const adjective = document.getElementsByClassName("adjective");
+    for (let i = 0; i < adjective.length; i++) {
+        adjective[i].style.display = "none";
+    }
 
     if (that.value == "noun") {
-        // show the noun element
-        document.getElementsByClassName("noun")[0].style.display = "block";
+        for (let i = 0; i < noun.length; i++) {
+            noun[i].style.display = "block";
+        }
     } else if (that.value == "verb") {
-        document.getElementsByClassName("verb")[0].style.display = "block";
+        for (let i = 0; i < verb.length; i++) {
+            verb[i].style.display = "block";
+        }
     } else if (that.value == "adjective") {
-        document.getElementsByClassName("adjective")[0].style.display = "block";
+        for (let i = 0; i < adjective.length; i++) {
+            adjective[i].style.display = "block";
+        }
     }
 }
 
