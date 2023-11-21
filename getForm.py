@@ -513,9 +513,16 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
 
         #before repeating for other ids, return the output if it exists
         if(output != ""):
+            #change to i
+            output = output.replace("j", "i")
             return output
-        
-    return "ERROR: Nothing found with those parameters"
+    if(not alt_dialects):
+        output = get_latin_form(word=word, id=id, case=case, voice=voice,
+                                 number=number, gender=gender, degree=degree,
+                                   wanted_pos=wanted_pos, alt_dialects=True)
+    else:
+        output = "ERROR: Nothing found with those parameters"
+    return output
         
 
 if(__name__ == '__main__'):
