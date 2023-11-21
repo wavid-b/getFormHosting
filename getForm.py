@@ -517,7 +517,7 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
             output = output.replace("j", "i")
             return output
     if(not alt_dialects):
-        output = get_latin_form(word=word, id=id, case=case, voice=voice,
+        output = get_latin_form(word="NULL", id=id, case=case, voice=voice,
                                  number=number, gender=gender, degree=degree,
                                    wanted_pos=wanted_pos, alt_dialects=True)
     else:
@@ -531,3 +531,4 @@ if(__name__ == '__main__'):
     print("hello")
     print(get_greek_form("λεγω", mood = "indicative", tense = "present", voice = "active", person = "third", number = "singular"))
     print(get_latin_form("mater", gender = "f", number = "p", case = "a"))
+    print(get_latin_form("senex", gender = "m", number = "s", case = "d"))
