@@ -33,7 +33,8 @@ def form():
                                     voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
         """
 
-        return jsonify({"result": result})
+        return jsonify({"result": result,
+                        "word": request.form["wd"]})
     else:
         return render_template("form.html", query="", arrow="", result="")
     

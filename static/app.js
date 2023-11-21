@@ -30,7 +30,7 @@ $(document).ready(function() {
         data: formData,
         success: function(response) {
           // Update the content on the page with the received response
-          $("#tape").prepend(response.result + '<br>');
+          $("#tape").prepend(response.word + ' > ' + response.result + '<br>');
         },
         error: function(error) {
           console.error("Error:", error);
