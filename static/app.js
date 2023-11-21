@@ -13,3 +13,30 @@ function posCheck(that) {
         document.getElementById("adjective").style.display = "block";
     }
 }
+
+$(document).ready(function() {
+    // Intercept form submission
+    $("#lemmatizerForm").submit(function(event) {
+      // Prevent default form submission
+      event.preventDefault();
+  
+      // Serialize form data
+      var formData = $(this).serialize();
+  
+      // Make an AJAX request to your Flask route
+      $.ajax({
+        type: "POST",
+        url: "/form", // Replace with the actual route that handles the form submission in your Flask app
+        data: formData,
+        success: function(response) {
+          // Update the content on the page with the received response
+          $("#tape").prepend(response.result + '<br>');
+        },
+        error: function(error) {
+          console.error("Error:", error);
+        }
+      });
+      return false;
+    });
+  });
+  
