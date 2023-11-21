@@ -1,6 +1,24 @@
 body {
-    background-color: Canvas;
-    color: CanvasText;
-    color-scheme: light dark;
-    font-family: 'Open Sans', sans-serif;
-  }
+  background-color: Canvas;
+  color: CanvasText;
+  color-scheme: light dark;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.leftdivision {
+    float: left;
+    padding-right: 5%;
+}
+.rightdivision
+{
+    float: left;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-top: 17;
+  margin-bottom: 0;
+}

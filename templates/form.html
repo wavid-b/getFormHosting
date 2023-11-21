@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
+
+<h2>Latin Lemmatizer</h2>
+<div class = "leftdivision">
 <form id = "lemmatizerForm" action="#" method = "post">
-    <h2>Latin Lemmatizer</h2>
     <p><label for="wd">Word:</label>
     <input type="text" name="wd" /></p>
 
@@ -165,6 +167,9 @@
       <option value="superlative">Superlative</option>
     </select>
   </p>
+
+</div>
+<p><input type="submit" value="Morph" /></p>
 </div>
 
 
@@ -177,10 +182,10 @@
     #check if word is null - use ID in that case
     -->
 
-    <p><input type="submit" value="Morph" /></p>
-    <br>
+    <div class = "rightdivision">
     <h4>Tape:</h3>
     <div id="tape"></div>
+    </div>
 
 </form>
 </html>
