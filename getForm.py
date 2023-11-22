@@ -303,6 +303,7 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
             print("Please enter a word or an ID, not both")
             return "ERROR: Please enter a word or an ID, not both"
     if(word != "NULL"):
+        word = word.lower()
         ids = get_id_full_latin(word)
         if(len(ids) == 0):
             print("No matching words found")
