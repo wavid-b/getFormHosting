@@ -32,9 +32,8 @@ def form():
                                     mood = "NULL", person = "NULL", tense = "NULL",
                                     voice = "NULL", degree = request.form["degree"], wanted_pos = request.form["wanted_pos"])
         """
-
         return jsonify({"result": result,
-                        "word": request.form["wd"]})
+                        "word": request.form["wd"].lower()})
     else:
         return render_template("form.html", query="", arrow="", result="")
     
