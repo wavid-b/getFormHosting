@@ -36,7 +36,7 @@ function makeTapeLine(response) {
         return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.person + " + " + response.number + " + " + response.tense + " + " + response.voice + " + " + response.mood + " => " + response.result);
     }
     if (response.wanted_pos == "adj.") {
-        return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.gender + " + " + response.number + " + " + response.case + " => " + response.result);
+        return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.gender + " + " + response.number + " + " + response.case + " + " + response.degree + " => " + response.result);
     }
   }
 

@@ -52,6 +52,11 @@ abbreviations = {
     # Voice
     'active': 'act',
     'passive': 'pass',
+
+    #Degree
+    'positive': 'pos',
+    'comparative': 'comp',
+    'superlative': 'super'
 }
 
 
@@ -99,7 +104,7 @@ def form():
                 "case": abbreviations[request.form["case"]],
                 "number": abbreviations[request.form["number"]],
                 "gender": abbreviations[request.form["gender"]],
-                #"degree": abbreviations[request.form["degree"]],
+                "degree": abbreviations[request.form["degree"]],
                 "wanted_pos": abbreviations[request.form["wanted_pos"]]})
 
         """
