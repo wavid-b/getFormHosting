@@ -29,29 +29,29 @@
     </p>
 
 <!-- Noun Options -->
-<div class="noun adjective" style="display: none">
-    <p><label for="case">Case:</label>
-        <select name="case" id="case">
-          <option value="NULL" selected></option>
-          <option value="nominative">Nominative</option>
-          <option value="genitive">Genitive</option>
-          <option value="dative">Dative</option>
-          <option value="accusative">Accusative</option>
-          <option value="ablative">Ablative</option>
-          <option value="vocative">Vocative</option>
-          <option value="locative">Locative</option>
-        </select>
-    </p>
 
-    <p><label for="gender">Gender:</label>
-        <select name="gender" id="gender">
-          <option value="NULL" selected></option>
-          <option value="masculine">Masculine</option>
-          <option value="feminine">Feminine</option>
-          <option value="neuter">Neuter</option>
-        </select>
-    </p>
+<div class="noun adjective" style="display: none">
+  <p><label for="gender">Gender:</label>
+    <select name="gender" id="gender">
+      <option value="NULL" selected></option>
+      <option value="masculine">Masculine</option>
+      <option value="feminine">Feminine</option>
+      <option value="neuter">Neuter</option>
+    </select>
+  </p>
 </div>
+
+<div class="verb" style="display: none">
+  <p><label for="person">Person:</label>
+    <select name="person" id="person">
+      <option value="NULL" selected></option>
+      <option value="first">First</option>
+      <option value="second">Second</option>
+      <option value="third">Third</option>
+    </select>
+  </p>
+</div>
+
 
 <div class="noun verb adjective" style="display: none">
   <p><label for="number">Number:</label>
@@ -62,30 +62,24 @@
     </select>
   </p>
 </div>
+  
+<div class="noun adjective" style="display: none">
+  <p><label for="case">Case:</label>
+      <select name="case" id="case">
+        <option value="NULL" selected></option>
+        <option value="nominative">Nominative</option>
+        <option value="genitive">Genitive</option>
+        <option value="dative">Dative</option>
+        <option value="accusative">Accusative</option>
+        <option value="ablative">Ablative</option>
+        <option value="vocative">Vocative</option>
+        <option value="locative">Locative</option>
+      </select>
+  </p>
+</div>
 
 <!-- Verb Options -->
 <div class="verb" style="display: none">
-    <p><label for="mood">Mood:</label>
-        <select name="mood" id="mood">
-          <option value="NULL" selected></option>
-          <option value="indicative">Indicative</option>
-          <option value="subjunctive">Subjunctive</option>
-          <option value="infinitive">Infinitive</option>
-          <option value="imperative">Imperative</option>
-          <option value="gerund">Gerund</option>
-          <option value="gerundive">Gerundive</option>
-        </select>
-    </p>
-
-    <p><label for="person">Person:</label>
-      <select name="person" id="person">
-        <option value="NULL" selected></option>
-        <option value="first">First</option>
-        <option value="second">Second</option>
-        <option value="third">Third</option>
-      </select>
-    </p>
-
     <p><label for="tense">Tense:</label>
       <select name="tense" id="tense">
         <option value="NULL" selected></option>
@@ -104,6 +98,18 @@
         <option value="active">Active</option>
         <option value="passive">Passive</option>
       </select>
+    </p>
+
+    <p><label for="mood">Mood:</label>
+        <select name="mood" id="mood">
+          <option value="NULL" selected></option>
+          <option value="indicative">Indicative</option>
+          <option value="subjunctive">Subjunctive</option>
+          <option value="infinitive">Infinitive</option>
+          <option value="imperative">Imperative</option>
+          <option value="gerund">Gerund</option>
+          <option value="gerundive">Gerundive</option>
+        </select>
     </p>
 </div>
 
