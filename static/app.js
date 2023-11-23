@@ -55,7 +55,6 @@ $(document).ready(function() {
         url: "/form",
         data: formData,
         success: function(response) {
-            alert(response.wanted_pos)
             // Update the content on the page with the received response
             $("#tapeTitle").html('<h4>History:</h4>');
             let tapeLine = makeTapeLine(response);
