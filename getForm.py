@@ -428,7 +428,24 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
                 posTag = posTag[:2] + number + posTag[3:]
         if("a" in pos):
                 #adj case
-
+            #case
+            if (case == "nominative"):
+                case = "n"
+            if (case == "genative"):
+                case = "g"
+            if (case == "dative"):
+                case = "d"
+            if (case == "accusative"):
+                case = "a"
+            if (case == "ablative"):
+                case = "b"
+            if (case == "locative"):
+                case = "l"
+            if (case == "vocative"):
+                case = "v" 
+            if (case != "NULL"):
+                # include case in search
+                posTag = posTag[:7] + case + posTag[8:]
             #number
             if (number == "singular"):
                 number = "s"
@@ -528,8 +545,9 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
 
 if(__name__ == '__main__'):
     #os.chdir("Individual/Leipzig-Research/Lemmatizer-GRK")
-    print(os.getcwd())
+    
     print("hello")
-    print(get_greek_form("λεγω", mood = "indicative", tense = "present", voice = "active", person = "third", number = "singular"))
-    print(get_latin_form("mater", gender = "f", number = "p", case = "a"))
-    print(get_latin_form("senex", gender = "m", number = "s", case = "d"))
+    # print(get_greek_form("λεγω", mood = "indicative", tense = "present", voice = "active", person = "third", number = "singular"))
+    # print(get_latin_form("mater", gender = "f", number = "p", case = "a"))
+    # print(get_latin_form("senex", gender = "m", number = "s", case = "d"))
+    print(get_latin_form("pulchra", wanted_pos= "a", case = "a", number = "s", degree= "p", gender = "f"))
