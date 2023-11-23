@@ -1,6 +1,5 @@
 
 import pandas as pd
-import os
 
 def get_id_greek(word):
     lemmaDF = pd.read_csv("Dictionary_Dataframes/greek_words.csv", sep = "\t")
