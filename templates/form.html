@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
+
+<h2>Latin Lemmatizer</h2>
+<div class = "leftdivision">
 <form id = "lemmatizerForm" action="#" method = "post">
-    <h2>Latin Lemmatizer</h2>
     <p><label for="wd">Word:</label>
     <input type="text" name="wd" /></p>
 
@@ -21,13 +23,13 @@
         <option value="NULL" selected></option>
         <option value="noun">Noun</option>
         <option value="verb">Verb</option>
-        <!-- <option value="adverb">Adverb</option> -->
         <option value="adjective">Adjective</option>
+        <!-- <option value="adverb">Adverb</option> -->
       </select>
     </p>
 
 <!-- Noun Options -->
-<div id="noun" style="display: none">
+<div class="noun adjective" style="display: none">
     <p><label for="case">Case:</label>
         <select name="case" id="case">
           <option value="NULL" selected></option>
@@ -49,26 +51,20 @@
           <option value="neuter">Neuter</option>
         </select>
     </p>
+</div>
 
-    <p><label for="number">Number:</label>
-        <select name="number" id="number">
-          <option value="NULL" selected></option>
-          <option value="singular">Singular</option>
-          <option value="plural">Plural</option>
-        </select>
-    </p>
+<div class="noun verb adjective" style="display: none">
+  <p><label for="number">Number:</label>
+    <select name="number" id="number">
+      <option value="NULL" selected></option>
+      <option value="singular">Singular</option>
+      <option value="plural">Plural</option>
+    </select>
+  </p>
 </div>
 
 <!-- Verb Options -->
-<div id="verb" style="display: none">
-    <p><label for="number">Number:</label>
-      <select name="number" id="number">
-        <option value="NULL" selected></option>
-        <option value="singular">Singular</option>
-        <option value="plural">Plural</option>
-      </select>
-    </p>
-
+<div class="verb" style="display: none">
     <p><label for="mood">Mood:</label>
         <select name="mood" id="mood">
           <option value="NULL" selected></option>
@@ -113,7 +109,7 @@
 
 
 <!-- Adverb Options
-<div id="adverb" style="display: none">
+<div class="adverb" style="display: none">
     <p><label for="degree">Degree:</label>
       <select name="degree" id="degree">
         <option value="NULL" selected></option>
@@ -126,37 +122,7 @@
 -->
 
 <!-- Adjective Options -->
-<div id="adjective" style="display: none">
-  <p><label for="case">Case:</label>
-      <select name="case" id="case">
-        <option value="NULL" selected></option>
-        <option value="nominative">Nominative</option>
-        <option value="genitive">Genitive</option>
-        <option value="dative">Dative</option>
-        <option value="accusative">Accusative</option>
-        <option value="ablative">Ablative</option>
-        <option value="vocative">Vocative</option>
-        <option value="locative">Locative</option>
-      </select>
-  </p>
-
-  <p><label for="gender">Gender:</label>
-      <select name="gender" id="gender">
-        <option value="NULL" selected></option>
-        <option value="masculine">Masculine</option>
-        <option value="feminine">Feminine</option>
-        <option value="neuter">Neuter</option>
-      </select>
-  </p>
-
-  <p><label for="number">Number:</label>
-      <select name="number" id="number">
-        <option value="NULL" selected></option>
-        <option value="singular">Singular</option>
-        <option value="plural">Plural</option>
-      </select>
-  </p>
-
+<div class="adjective" style="display: none">
   <p><label for="degree">Degree:</label>
     <select name="degree" id="degree">
       <option value="NULL" selected></option>
@@ -165,6 +131,9 @@
       <option value="superlative">Superlative</option>
     </select>
   </p>
+
+</div>
+<p><input type="submit" value="Morph" /></p>
 </div>
 
 
@@ -177,9 +146,10 @@
     #check if word is null - use ID in that case
     -->
 
-    <p><input type="submit" value="Morph" /></p>
-
+    <div class = "rightdivision">
+    <div id="tapeTitle"></div>
     <div id="tape"></div>
+    </div>
 
 </form>
 </html>
