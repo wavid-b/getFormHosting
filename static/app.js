@@ -29,14 +29,42 @@ function posCheck(that) {
 }
 
 function makeTapeLine(response) {
-    if (response.wanted_pos == "n.") {
-        return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.gender + " + " + response.number + " + " + response.case + " => " + response.result);
+    var tapeLine = `${response.word} (${response.wanted_pos})`
+    if (response.wanted_pos == "n." || response.wanted_pos == "adj.") {
+        if (response.gender.length > 0) {
+            tapeLine += ` + ${response.gender}`
+        }
+        if (response.number.length > 0) {
+            tapeLine += ` + ${response.number}`
+        }
+        if (response.case.length > 0) {
+            tapeLine += ` + ${response.case}`
+        }
+        if (response.degree && response.degree.length > 0) {
+            tapeLine += ` + ${response.degree}`;
+        }
+        return tapeLine += ` => ${response.result}`
+        //return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.gender + " + " + response.number + " + " + response.case + " => " + response.result);
     }
     if (response.wanted_pos == "v.") {
-        return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.person + " + " + response.number + " + " + response.tense + " + " + response.voice + " + " + response.mood + " => " + response.result);
-    }
-    if (response.wanted_pos == "adj.") {
-        return (response.word + ' (' + response.wanted_pos + ')' + " + " + response.gender + " + " + response.number + " + " + response.case + " + " + response.degree + " => " + response.result);
+        if (response.wanted_pos == "v.") {
+            if (response.person.length > 0) {
+                tapeLine += ` + ${response.person}`;
+            }
+            if (response.number.length > 0) {
+                tapeLine += ` + ${response.number}`;
+            }
+            if (response.tense.length > 0) {
+                tapeLine += ` + ${response.tense}`;
+            }
+            if (response.voice.length > 0) {
+                tapeLine += ` + ${response.voice}`;
+            }
+            if (response.mood.length > 0) {
+                tapeLine += ` + ${response.mood}`;
+            }
+            return tapeLine += ` => ${response.result}`;
+        }
     }
   }
 
