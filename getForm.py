@@ -262,6 +262,53 @@ def get_def_greek(id):
             #longest definition is the one we want (?)
             out = row["definition"]
     return out
+def get_FPP_greek(word = "NULL", id = "NULL", pos = "NULL"):
+    #use char pos not full word
+    if(word != "NULL"):
+        ids = get_id_greek(word)
+        parts_of_speech = [] 
+    if (id != "NULL"):
+        ids = [id]
+
+
+        #remove duplicates
+    output = {}
+    for id in ids: 
+        output[id] = ""
+        if (pos != "NULL"):
+            parts_of_speech = [pos]
+        else:
+            parts_of_speech = get_POS_greek(id)
+        if("n" in parts_of_speech):
+            temp = get_greek_form(id = id, case = "nominative", number = "singular")
+            if("ERROR" in temp):
+                temp = get_greek_form(id = id, case = "nominative", number = "plural")
+            if("ERROR" not in temp):
+                output[id] = temp
+        if("v" in parts_of_speech or "t" in parts_of_speech):
+            temp = get_greek_form(id = id, mood = "indicative", person = "first", number = "singular", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #no singular 
+                temp = get_greek_form(id = id, mood = "indicative", person = "first", number = "plural", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #impersonal
+                temp = get_greek_form(id = id, mood = "indicative", person = "third", number = "singular", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #impersonal and no sing 
+                temp = get_greek_form(id = id, mood = "indicative", person = "third", number = "plural", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #deponent
+                temp = get_greek_form(id = id, mood = "indicative", person = "first", number = "singular", tense = "present")
+            if("ERROR" not in temp):
+                output[id] = temp
+        if("a" in parts_of_speech):
+            temp = get_greek_form(id = id, case = "nominative", number = "singular", degree = "positive", gender = "masculine")
+            if("ERROR" in temp):
+                temp = get_greek_form(id = id, case = "nominative", number = "singular", gender = "masculine")
+            if("ERROR" not in temp):
+                output[id] = temp
+
+    return output
 def get_dict_greek(word, show_def = False):
     ids = get_id_greek(word)
         #list of dictionary entries 
@@ -397,10 +444,7 @@ def get_dict_greek(word, show_def = False):
             definition = "No Definiton"
             #case for when FPP isn't found in parses
         if(text[0] == "NULL"):
-            #needs to be getFPP
-            df2 = lemmaDF.loc[lemmaDF["id"] == id]
-            for index, row in df2.iterrows():
-                text[0] = row["bare_text"]
+            get_FPP_greek(id = id, pos = pos)
         #make dictionary entry string
         match(pos):
             #make sure each of those exists before trying to output
@@ -749,6 +793,53 @@ def get_def_latin(id):
     for index, row in df.iterrows():
         output = (row["definition"])
     return output
+def get_FPP_latin(word = "NULL", id = "NULL", pos = "NULL"):
+    #use char pos not full word
+    if (word != "NULL"):
+        ids = get_id_full_latin(word)
+        parts_of_speech = [] 
+    if (id != "NULL"):
+        ids = [id]
+
+
+        #remove duplicates
+    output = {}
+    for id in ids: 
+        output[id] = ""
+        if (pos != "NULL"):
+            parts_of_speech = [pos]
+        else:
+            parts_of_speech = get_POS_latin(id)
+        if("n" in parts_of_speech):
+            temp = get_POS_latin(id = id, case = "nominative", number = "singular")
+            if("ERROR" in temp):
+                temp = get_POS_latin(id = id, case = "nominative", number = "plural")
+            if("ERROR" not in temp):
+                output[id] = temp
+        if("v" in parts_of_speech or "t" in parts_of_speech):
+            temp = get_POS_latin(id = id, mood = "indicative", person = "first", number = "singular", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #no singular 
+                temp = get_POS_latin(id = id, mood = "indicative", person = "first", number = "plural", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #impersonal
+                temp = get_POS_latin(id = id, mood = "indicative", person = "third", number = "singular", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #impersonal and no sing 
+                temp = get_POS_latin(id = id, mood = "indicative", person = "third", number = "plural", tense = "present", voice = "active")
+            if("ERROR" in temp):
+                #deponent
+                temp = get_POS_latin(id = id, mood = "indicative", person = "first", number = "singular", tense = "present")
+            if("ERROR" not in temp):
+                output[id] = temp
+        if("a" in parts_of_speech):
+            temp = get_POS_latin(id = id, case = "nominative", number = "singular", degree = "positive", gender = "masculine")
+            if("ERROR" in temp):
+                temp = get_POS_latin(id = id, case = "nominative", number = "singular", gender = "masculine")
+            if("ERROR" not in temp):
+                output[id] = temp
+
+    return output
 def get_dict_latin(word, show_def = False):
     parsesDF = pd.read_csv("Dictionary_Dataframes/parses.csv", sep = "{")
     lemmaDF = pd.read_csv("Dictionary_Dataframes/lemmas.csv", sep = "{")
@@ -947,3 +1038,4 @@ if(__name__ == '__main__'):
                          wanted_pos = "a", ))
     print(get_latin_form("romanus", case = "v", number = "p", gender = "m", 
                          wanted_pos = "a", ))
+    
