@@ -41,6 +41,14 @@ function makeTapeLine(response) {
   }
 
 $(document).ready(function() {
+    var html = document.getElementsByTagName('html');
+    var radios = document.getElementsByName('wanted_pos');
+
+    for (i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('change', function() {
+            posCheck(this);});
+    }
+
     // Intercept form submission
     $("#lemmatizerForm").submit(function(event) {
       // Prevent default form submission

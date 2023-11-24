@@ -72,12 +72,13 @@ def form():
             result = get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
                                     mood = "NULL", person = "NULL", tense = "NULL",
                                     voice = "NULL", degree = "NULL",  wanted_pos = request.form["wanted_pos"])
-            return jsonify({"result": result,
-                            "word": request.form["wd"].lower(),
-                            "case": abbreviations[request.form["case"]],
-                            "number": abbreviations[request.form["number"]],
-                            "gender": abbreviations[request.form["gender"]],
-                            "wanted_pos": abbreviations[request.form["wanted_pos"]]})
+            return jsonify({
+                "result": result,
+                "word": request.form["wd"].lower(),
+                "case": abbreviations[request.form["case"]],
+                "number": abbreviations[request.form["number"]],
+                "gender": abbreviations[request.form["gender"]],
+                "wanted_pos": abbreviations[request.form["wanted_pos"]]})
 
             
         elif request.form["wanted_pos"] == "verb": #takes number, mood, person, tense, voice

@@ -13,20 +13,29 @@
 </head>
 
 <h2>Latin Lemmatizer</h2>
-<div class = "leftdivision">
 <form id = "lemmatizerForm" action="#" method = "post">
-    <p><label for="wd">Word:</label>
-    <input type="text" name="wd" /></p>
-
-    <p><label for="wanted_pos">Part of Speech:</label>
-      <select onchange="posCheck(this);" name="wanted_pos" id="wanted_pos">
-        <option value="NULL" selected></option>
-        <option value="noun">Noun</option>
-        <option value="verb">Verb</option>
-        <option value="adjective">Adjective</option>
-        <!-- <option value="adverb">Adverb</option> -->
-      </select>
+<div class = "leftdivision"></div>
+    <p>
+    <input type="text" name="wd" placeholder="Word" />
     </p>
+    <div class="formButtons">
+      <p>
+          <input type="radio" name="wanted_pos" id="noun" value="noun" />
+          <label for="noun">
+              <span>Noun</span>
+          </label>
+          <input type="radio" name="wanted_pos" id="verb" value="verb" />
+          <label for="verb">
+              <span>Verb</span>
+          </label>
+          <input type="radio" name="wanted_pos" id="adjective" value="adjective" />
+          <label for="adjective">
+              <span>Adjective</span>
+          </label>
+      </p>
+      <span class="slider"></span>
+  </div>
+  
 
 <!-- Noun Options -->
 
@@ -139,6 +148,7 @@
   </p>
 
 </div>
+
 <p><input type="submit" value="Morph" /></p>
 </div>
 
