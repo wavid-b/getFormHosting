@@ -13,3 +13,32 @@ h4 {
   margin-top: 17;
   margin-bottom: 0;
 }
+
+.formButtons, .gender, .number, .case, .degree, .person, .mood, .tense, .voice {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.25)
+}
+
+.formButtonsInput {
+  display: none;
+}
+
+.formButtonsLabel {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: #009578;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.formButtonsLabel:not(:last-of-type) {
+  border-right: 1px solid #006B56;
+}
+
+.formButtonsInput:checked + .formButtonsLabel {
+  background-color: #006B56
+}
