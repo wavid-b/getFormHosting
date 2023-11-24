@@ -38,6 +38,7 @@
 
 <!-- Noun Options -->
 
+<!---
 <div class="noun adjective" style="display: none">
   <p><label for="gender">Gender:</label>
     <select name="gender" id="gender">
@@ -46,6 +47,28 @@
       <option value="feminine">Feminine</option>
       <option value="neuter">Neuter</option>
     </select>
+  </p>
+</div>
+-->
+
+<div class="noun adjective" style="display: none">
+  <p><label for="gender">Gender</label>
+      <input type="radio" name="gender" id="NULL" value="NULL" checked />
+      <label for="noun">
+          <span>None</span>
+      </label>
+      <input type="radio" name="gender" id="masculine" value="masculine" />
+      <label for="noun">
+          <span>Masculine</span>
+      </label>
+      <input type="radio" name="gender" id="feminine" value="feminine" />
+      <label for="verb">
+          <span>Feminine</span>
+      </label>
+      <input type="radio" name="gender" id="neuter" value="neuter" />
+      <label for="adjective">
+          <span>Neuter</span>
+      </label>
   </p>
 </div>
 
@@ -62,12 +85,19 @@
 
 
 <div class="noun verb adjective" style="display: none">
-  <p><label for="number">Number:</label>
-    <select name="number" id="number">
-      <option value="NULL" selected></option>
-      <option value="singular">Singular</option>
-      <option value="plural">Plural</option>
-    </select>
+  <p><label for="number">Number</label>
+      <input type="radio" name="number" id="NULL" value="NULL" checked />
+      <label for="noun">
+          <span>None</span>
+      </label>
+      <input type="radio" name="number" id="singular" value="singular" />
+      <label for="singular">
+          <span>Singular</span>
+      </label>
+      <input type="radio" name="number" id="plural" value="plural" />
+      <label for="plural">
+          <span>Plural</span>
+      </label>
   </p>
 </div>
   
