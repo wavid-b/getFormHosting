@@ -54,7 +54,7 @@
 <div class="noun adjective" style="display: none">
   <p><label for="gender">Gender</label>
       <input type="radio" name="gender" id="NULL" value="NULL" checked />
-      <label for="noun">
+      <label for="NULL">
           <span>None</span>
       </label>
       <input type="radio" name="gender" id="masculine" value="masculine" />
@@ -73,13 +73,23 @@
 </div>
 
 <div class="verb" style="display: none">
-  <p><label for="person">Person:</label>
-    <select name="person" id="person">
-      <option value="NULL" selected></option>
-      <option value="first">First</option>
-      <option value="second">Second</option>
-      <option value="third">Third</option>
-    </select>
+  <p><label for="person">Person</label>
+      <input type="radio" name="person" id="NULL" value="NULL" checked />
+      <label for="NULL">
+          <span>None</span>
+      </label>
+      <input type="radio" name="person" id="first" value="first" />
+      <label for="first">
+          <span>First</span>
+      </label>
+      <input type="radio" name="person" id="second" value="second" />
+      <label for="second">
+          <span>Second</span>
+      </label>
+      <input type="radio" name="person" id="third" value="third" />
+      <label for="third">
+          <span>Third</span>
+      </label>
   </p>
 </div>
 
@@ -130,13 +140,22 @@
       </select>
     </p>
 
-    <p><label for="voice">Voice:</label>
-      <select name="voice" id="voice">
-        <option value="NULL" selected></option>
-        <option value="active">Active</option>
-        <option value="passive">Passive</option>
-      </select>
-    </p>
+    <div class="verb" style="display: none">
+      <p><label for="voice">Voice</label>
+          <input type="radio" name="voice" id="NULL" value="NULL" checked />
+          <label for="noun">
+              <span>None</span>
+          </label>
+          <input type="radio" name="voice" id="active" value="active" />
+          <label for="active">
+              <span>Active</span>
+          </label>
+          <input type="radio" name="voice" id="passive" value="passive" />
+          <label for="passive">
+              <span>Passive</span>
+          </label>
+      </p>
+    </div>
 
     <p><label for="mood">Mood:</label>
         <select name="mood" id="mood">
@@ -167,15 +186,24 @@
 
 <!-- Adjective Options -->
 <div class="adjective" style="display: none">
-  <p><label for="degree">Degree:</label>
-    <select name="degree" id="degree">
-      <option value="NULL" selected></option>
-      <option value="positive">Positive</option>
-      <option value="comparative">Comparative</option>
-      <option value="superlative">Superlative</option>
-    </select>
+  <p><label for="degree">Degree</label>
+      <input type="radio" name="degree" id="NULL" value="NULL" checked />
+      <label for="NULL">
+          <span>None</span>
+      </label>
+      <input type="radio" name="degree" id="positive" value="positive" />
+      <label for="positive">
+          <span>Positive</span>
+      </label>
+      <input type="radio" name="degree" id="comparative" value="comparative" />
+      <label for="comparative">
+          <span>Comparative</span>
+      </label>
+      <input type="radio" name="degree" id="superlative" value="superlative" />
+      <label for="superlative">
+          <span>Superlative</span>
+      </label>
   </p>
-
 </div>
 
 <p><input type="submit" value="Morph" /></p>
