@@ -6,8 +6,12 @@ body {
   font-size: 15px;
 }
 
-h1 {
+.mareTitle {
   margin-bottom: 0;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  display: inline;
+  color: #006B56;
 }
 
 h4 {
@@ -19,7 +23,7 @@ input[type=text], select {
   padding: 8px 14px;
   margin: 0 0;
   display: inline-flex;
-  border: 1px solid #006B56;;
+  border: 1px solid #006B56;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -71,14 +75,14 @@ input[type=text], select {
 }
 
 .formButtonsInput:checked + .formButtonsLabel {
-  background-color: #006B56
+  background-color: #006B56;
 }
 
 .morph {
   padding: 8px 14px;
   margin: 0 0;
   display: inline-block;
-  border: 1px solid #006B56;;
+  border: 1px solid #006B56;
   border-radius: 5px;
   box-sizing: border-box;
 }
