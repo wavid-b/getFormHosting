@@ -24,9 +24,10 @@ input[type=text], select {
 }
 
 .inputWord {
-  width: 25%;
+  width: 30%;
 }
 
+/* radio button styling */
 .formButtons, .gender, .number, .case, .degree, .person, .mood, .tense, .voice {
   display: inline-flex;
   overflow: hidden;
@@ -34,8 +35,9 @@ input[type=text], select {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.25)
 }
 
-.formButtons, .gender, .number, .person, .voice {
-  width: 25%;
+/* drop-down styling */
+.formButtons, .gender, .number, .person, .voice, .degree {
+  width: 30%;
   display: flex;
 }
 
