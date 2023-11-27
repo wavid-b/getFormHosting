@@ -14,6 +14,15 @@ h4 {
   margin-bottom: 0;
 }
 
+input[type=text], select {
+  padding: 8px 14px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #006B56;;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
 .formButtons, .gender, .number, .case, .degree, .person, .mood, .tense, .voice {
   display: inline-flex;
   overflow: hidden;
