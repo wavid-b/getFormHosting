@@ -6,17 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
-<h2>Latin Lemmatizer</h2>
+<h1>Latin Lemmatizer</h1>
 <form id = "lemmatizerForm" action="#" method = "post">
     <p>
     <input type="text" name="wd" placeholder="Word" class="inputWord" />
     </p>
+    Part of Speech
     <div class="formButtons">
           <input type="radio" name="wanted_pos" id="noun" value="noun" class="formButtonsInput" />
           <label for="noun" class="formButtonsLabel">
@@ -49,6 +47,7 @@
 -->
 
 <div class="noun adjective" style="display: none">
+  Gender
   <div class="gender">
   <label for="gender"></label>
       <input type="radio" name="gender" id="genderNULL" value="NULL" class="formButtonsInput" checked />
@@ -71,6 +70,7 @@
 </div>
 
 <div class="verb" style="display: none">
+  Person
   <div class="person">
   <label for="person"></label>
       <input type="radio" name="person" id="verbNULL" value="NULL" class="formButtonsInput" checked />
@@ -94,6 +94,7 @@
 
 
 <div class="noun verb adjective" style="display: none">
+  Number
   <div class="number">
   <label for="number"></label>
       <input type="radio" name="number" id="numberNULL" value="NULL" class="formButtonsInput" checked />
@@ -112,6 +113,8 @@
 </div>
   
 <div class="noun adjective" style="display: none">
+  Case
+  <br>
 <div class ="case">
   <label for="case"></label>
       <select name="case" id="case">
@@ -129,6 +132,8 @@
 
 <!-- Verb Options -->
 <div class="verb" style="display: none">
+  Tense
+  <br>
   <div class="tense">
     <label for="tense"></label>
       <select name="tense" id="tense">
@@ -143,6 +148,7 @@
   </div>
 
     <div class="verb" style="display: none">
+      Voice
       <div class="voice">
       <label for="voice"></label>
           <input type="radio" name="voice" id="voiceNULL" value="NULL" class="formButtonsInput" checked />
@@ -160,6 +166,8 @@
         </div>
     </div>
 
+    Mood
+    <br>
     <div class="mood">
     <label for="mood"></label>
         <select name="mood" id="mood">
@@ -190,6 +198,7 @@
 
 <!-- Adjective Options -->
 <div class="adjective" style="display: none">
+  Degree
   <div class="degree">
   <label for="degree"></label>
       <input type="radio" name="degree" id="degreeNULL" value="NULL" class="formButtonsInput" checked />

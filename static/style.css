@@ -3,9 +3,10 @@ body {
   color: CanvasText;
   color-scheme: light dark;
   font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
 }
 
-h2 {
+h1 {
   margin-bottom: 0;
 }
 
@@ -27,7 +28,7 @@ input[type=text], select {
   width: 30%;
 }
 
-/* radio button styling */
+
 .formButtons, .gender, .number, .case, .degree, .person, .mood, .tense, .voice {
   display: inline-flex;
   overflow: hidden;
@@ -35,17 +36,18 @@ input[type=text], select {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.25)
 }
 
-/* drop-down styling */
+/* radio button styling */
 .formButtons, .gender, .number, .person, .voice, .degree {
   width: 30%;
   display: flex;
 }
 
-/*.case, .tense, .mood {
-  width: 25%;
-  display: inline-flex;
-  flex: 1;
-}*/
+/* drop-down styling */
+.case, .tense, .mood {
+  -webkit-appearance: none !important;
+  -moz-appearance:    none;
+  appearance:         none !important;
+}
 
 /* remove buttons from radios */
 .formButtonsInput {
@@ -79,4 +81,14 @@ input[type=text], select {
   border: 1px solid #006B56;;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+  .formButtons, .gender, .number, .person, .voice, .degree {
+    width: 100%;
+    display: flex;
+  }
+  .inputWord {
+    width: 100%;
+  }
 }
