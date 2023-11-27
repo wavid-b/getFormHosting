@@ -49,7 +49,8 @@
 -->
 
 <div class="noun adjective" style="display: none">
-  <p><label for="gender">Gender</label>
+  <div class="gender">
+  <label for="gender"></label>
       <input type="radio" name="gender" id="genderNULL" value="NULL" class="formButtonsInput" checked />
       <label for="genderNULL" class="formButtonsLabel">
           <span>None</span>
@@ -66,11 +67,12 @@
       <label for="neuter" class="formButtonsLabel">
           <span>Neuter</span>
       </label>
-  </p>
+  </div>
 </div>
 
 <div class="verb" style="display: none">
-  <p><label for="person">Person</label>
+  <div class="person">
+  <label for="person"></label>
       <input type="radio" name="person" id="verbNULL" value="NULL" class="formButtonsInput" checked />
       <label for="verbNULL" class="formButtonsLabel">
           <span>None</span>
@@ -87,12 +89,13 @@
       <label for="third" class="formButtonsLabel">
           <span>Third</span>
       </label>
-  </p>
+</div>
 </div>
 
 
 <div class="noun verb adjective" style="display: none">
-  <p><label for="number">Number</label>
+  <div class="number">
+  <label for="number"></label>
       <input type="radio" name="number" id="numberNULL" value="NULL" class="formButtonsInput" checked />
       <label for="numberNULL" class="formButtonsLabel">
           <span>None</span>
@@ -105,11 +108,12 @@
       <label for="plural" class="formButtonsLabel">
           <span>Plural</span>
       </label>
-  </p>
+</div>
 </div>
   
 <div class="noun adjective" style="display: none">
-  <p><label for="case">Case:</label>
+<div class ="case">
+  <label for="case"></label>
       <select name="case" id="case">
         <option value="NULL" selected></option>
         <option value="nominative">Nominative</option>
@@ -120,12 +124,13 @@
         <option value="vocative">Vocative</option>
         <option value="locative">Locative</option>
       </select>
-  </p>
+    </div>
 </div>
 
 <!-- Verb Options -->
 <div class="verb" style="display: none">
-    <p><label for="tense">Tense:</label>
+  <div class="tense">
+    <label for="tense"></label>
       <select name="tense" id="tense">
         <option value="NULL" selected></option>
         <option value="present">Present</option>
@@ -135,10 +140,11 @@
         <option value="future perfect">Future Perfect</option>
         <option value="future">Future</option>
       </select>
-    </p>
+  </div>
 
     <div class="verb" style="display: none">
-      <p><label for="voice">Voice</label>
+      <div class="voice">
+      <label for="voice"></label>
           <input type="radio" name="voice" id="voiceNULL" value="NULL" class="formButtonsInput" checked />
           <label for="voiceNULL" class="formButtonsLabel">
               <span>None</span>
@@ -151,10 +157,11 @@
           <label for="passive" class="formButtonsLabel">
               <span>Passive</span>
           </label>
-      </p>
+        </div>
     </div>
 
-    <p><label for="mood">Mood:</label>
+    <div class="mood">
+    <label for="mood"></label>
         <select name="mood" id="mood">
           <option value="NULL" selected></option>
           <option value="indicative">Indicative</option>
@@ -164,7 +171,7 @@
           <option value="gerund">Gerund</option>
           <option value="gerundive">Gerundive</option>
         </select>
-    </p>
+  </div>
 </div>
 
 
@@ -183,7 +190,8 @@
 
 <!-- Adjective Options -->
 <div class="adjective" style="display: none">
-  <p><label for="degree">Degree</label>
+  <div class="degree">
+  <label for="degree"></label>
       <input type="radio" name="degree" id="degreeNULL" value="NULL" class="formButtonsInput" checked />
       <label for="degreeNULL" class="formButtonsLabel">
           <span>None</span>
@@ -200,7 +208,7 @@
       <label for="superlative" class="formButtonsLabel">
           <span>Superlative</span>
       </label>
-  </p>
+</div>
 </div>
 
 <p><input type="submit" value="Morph" /></p>
