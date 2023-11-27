@@ -17,10 +17,14 @@ h4 {
 input[type=text], select {
   padding: 8px 14px;
   margin: 0 0;
-  display: inline-block;
+  display: inline-flex;
   border: 1px solid #006B56;;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+.inputWord {
+  width: 25%;
 }
 
 .formButtons, .gender, .number, .case, .degree, .person, .mood, .tense, .voice {
@@ -30,6 +34,18 @@ input[type=text], select {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.25)
 }
 
+.formButtons, .gender, .number, .person, .voice {
+  width: 25%;
+  display: flex;
+}
+
+/*.case, .tense, .mood {
+  width: 25%;
+  display: inline-flex;
+  flex: 1;
+}*/
+
+/* remove buttons from radios */
 .formButtonsInput {
   display: none;
 }
@@ -42,6 +58,8 @@ input[type=text], select {
   background-color: #009578;
   cursor: pointer;
   transition: background-color 0.1s;
+  text-align: center;
+  flex: 1;
 }
 
 .formButtonsLabel:not(:last-of-type) {
@@ -50,4 +68,13 @@ input[type=text], select {
 
 .formButtonsInput:checked + .formButtonsLabel {
   background-color: #006B56
+}
+
+.morph {
+  padding: 8px 14px;
+  margin: 0 0;
+  display: inline-block;
+  border: 1px solid #006B56;;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
