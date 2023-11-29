@@ -781,7 +781,8 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
     if(not alt_dialects):
         output = get_latin_form(word="NULL", id=id, case=case, voice=voice,
                                  number=number, gender=gender, degree=degree,
-                                   wanted_pos=wanted_pos, alt_dialects=True)
+                                   wanted_pos=wanted_pos, alt_dialects=True,
+                                    mood=mood, person=person, tense=tense)
     else:
         output = "ERROR: Nothing found with those parameters"
     return output
@@ -1038,4 +1039,6 @@ if(__name__ == '__main__'):
                          wanted_pos = "a", ))
     print(get_latin_form("romanus", case = "v", number = "p", gender = "m", 
                          wanted_pos = "a", ))
-    
+    print(get_latin_form("clamo", tense = "l", wanted_pos= "v", 
+                         mood = "indicative", number = "plural",
+                         voice = "active", person = "third"))
