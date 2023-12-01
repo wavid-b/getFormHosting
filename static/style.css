@@ -30,6 +30,8 @@ input[type=text], select {
 
 .inputWord {
   width: 30%;
+  min-width: 400px;
+  display: flex;
 }
 
 
@@ -43,6 +45,7 @@ input[type=text], select {
 /* radio button styling */
 .formButtons, .gender, .number, .person, .voice, .degree {
   width: 30%;
+  min-width: 400px;
   display: flex;
 }
 
