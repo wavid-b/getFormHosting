@@ -88,7 +88,7 @@ input[type=text], select {
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: url("chevrondown.png");
+  background: url("down.png");
   background-repeat: no-repeat;
   background-size: 6%;
   background-position-x: 95%;
