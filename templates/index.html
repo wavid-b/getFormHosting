@@ -3,6 +3,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../static/app.js"></script>
     <link rel="stylesheet" href="../static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -11,20 +12,27 @@
     <link rel="shortcut icon" href="/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <title>mare // home</title>
 </head>
 <body class = "homeBody">
-    <h1>mare // home 🏠</h1>
+    <h1 class="mareTitle">mare</h1><h1 style = "display: inline;"> 🌊</h1>
     <p>hey, we're building sick tools for classics scholars and enthusiasts.</p>
     <p>
-        <ul class = "homeNav">
+        <div class = "homeNav">
+        <ul>
             <li><a href = "/form">Latin Lemmatizer</a></li>
             <li>Latin Dictionary</li>
             <li>Greek Lemmatizer</li>
             <li>Greek Dictionary</li>
+            <li style="margin: 0px 0px">API (for developers) 👩🏽‍💻</li>
+            <li>Source Code</li>
             <li>iOS App</li>
-            <li style="margin: -3px 0px">API (for developers) 👩🏽‍💻</li>
         </ul>
+        </div>
     </p>
 </body>
 </html>
