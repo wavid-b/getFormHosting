@@ -91,9 +91,16 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-/*select {
+/* make ugly listbox not show on safari */
+select {
   -webkit-appearance: none;
-}*/
+  -moz-appearance: none;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png);
+  background-repeat: no-repeat;
+  background-size: 5%;
+  background-position-x: 95%;
+  background-position-y: 14px;
+}
 
 @media only screen and (max-width: 600px) {
   .formButtons, .gender, .number, .person, .voice, .degree {
