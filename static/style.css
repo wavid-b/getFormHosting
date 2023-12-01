@@ -65,9 +65,13 @@ input[type=text], select {
   color: white;
   background-color: #009578;
   cursor: pointer;
-  transition: background-color 0.1s;
+  transition: 0.2s;
   text-align: center;
   flex: 1;
+}
+
+.formButtonsLabel:hover {
+  background-color: #006B56;
 }
 
 .formButtonsLabel:not(:last-of-type) {
@@ -86,6 +90,10 @@ input[type=text], select {
   border-radius: 5px;
   box-sizing: border-box;
 }
+
+/*select {
+  -webkit-appearance: none;
+}*/
 
 @media only screen and (max-width: 600px) {
   .formButtons, .gender, .number, .person, .voice, .degree {
