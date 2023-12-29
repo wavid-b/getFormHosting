@@ -1,10 +1,28 @@
 
 import pandas as pd
-import os
+import string
+from unidecode import unidecode
+#DECLARE VARIABLES
+grkLemmaDF = pd.read_csv("Dictionary_Dataframes/greek_words.csv", sep = "\t")
+del grkLemmaDF['Unnamed: 0']
+latLemmaDF = pd.read_csv("Dictionary_Dataframes/lemmas.csv", sep = "{")
+del latLemmaDF['Unnamed: 0']
+parsesDF = pd.read_csv("Dictionary_Dataframes/parses.csv", sep = "{")
+del parsesDF['Unnamed: 0']
+#FUNCTIONS
 
+def clean_input(word):
+    # Remove accents
+    word = unidecode(word)
+    # Remove punctuation
+    word = word.translate(str.maketrans('', '', string.punctuation))
+    # Remove spaces
+    word = word.strip()
+    # Convert to lowercase
+    word = word.lower()
+    return word
 def get_id_greek(word):
-    lemmaDF = pd.read_csv("Dictionary_Dataframes/greek_words.csv", sep = "\t")
-    del lemmaDF['Unnamed: 0']
+    lemmaDF = grkLemmaDF
     #search the lemmaDF for the word
     word = word.lower()
     output = []
@@ -18,8 +36,7 @@ def get_id_greek(word):
 
 def get_POS_greek(id):
     #returns the part of speech of the word
-    lemmaDF = pd.read_csv("Dictionary_Dataframes/greek_words.csv", sep = "\t")
-    del lemmaDF['Unnamed: 0']
+    lemmaDF = grkLemmaDF
     output = []
     df = lemmaDF.loc[lemmaDF["id"] == id]
     for(index, row) in df.iterrows():
@@ -32,8 +49,7 @@ def get_greek_form(word = "NULL", id = "NULL", case = "NULL",
               person = "NULL", tense = "NULL", voice = "NULL",
                 degree = "NULL", wanted_pos = "NULL"):
     #check if word is null - use ID in that case
-    lemmaDF = pd.read_csv("Dictionary_Dataframes/greek_words.csv", sep = "\t")
-    del lemmaDF['Unnamed: 0']
+    lemmaDF = grkLemmaDF
     if(word == "NULL" and id == "NULL"):
         print("Please enter a word or an ID")
         return "ERROR: Please enter a word or an ID"
@@ -252,8 +268,6 @@ def get_greek_form(word = "NULL", id = "NULL", case = "NULL",
 
 
 def get_id_parse_latin(word, input):
-    parsesDF = pd.read_csv("Dictionary_Dataframes/parses.csv", sep = "{")
-    del parsesDF["Unnamed: 0"]
     #search parseDF for instances and add to output if it isn't already in there
     output = input
     df = parsesDF.loc[parsesDF["bare_text"] == word]
@@ -264,9 +278,8 @@ def get_id_parse_latin(word, input):
     return output
 def get_id_latin(word):
     #search the lemmaDF for the word
-    lemmaDF = pd.read_csv("Dictionary_Dataframes/lemmas.csv", sep = "{")
-    del lemmaDF['Unnamed: 0']
     output = []
+    lemmaDF = latLemmaDF
     #this is the dataframe of all rows with the word
     df = lemmaDF.loc[lemmaDF["bare_text"] == word]
         #iterrows works, but the others dont. ok whatever
@@ -280,8 +293,6 @@ def get_id_full_latin(word):
     return ids
 def get_POS_latin(id):
      #returns the part of speech of the word
-    parsesDF = pd.read_csv("Dictionary_Dataframes/parses.csv", sep = "{")
-    del parsesDF["Unnamed: 0"]
     output = []
     df = parsesDF.loc[parsesDF["id"] == id]
     for(index, row) in df.iterrows():
@@ -293,8 +304,6 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
               number = "NULL", gender = "NULL", mood = "NULL", 
               person = "NULL", tense = "NULL", voice = "NULL",
                 degree = "NULL", alt_dialects = False, wanted_pos = "NULL"):
-    parsesDF = pd.read_csv("Dictionary_Dataframes/parses.csv", sep = "{")
-    del parsesDF["Unnamed: 0"]
     #check if word is null - use ID in that case
     if(word == "NULL" and id == "NULL"):
         print("Please enter a word or an ID")
@@ -303,7 +312,7 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
             print("Please enter a word or an ID, not both")
             return "ERROR: Please enter a word or an ID, not both"
     if(word != "NULL"):
-        word = word.lower()
+        word = clean_input(word)
         ids = get_id_full_latin(word)
         if(len(ids) == 0):
             print("No matching words found")
@@ -528,8 +537,6 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
                             break
                         #this is the case that we disclude it from results
             if fits:
-                print("POS TAG: " + posTag)
-                print(row["morph_code"])
                 output = row["bare_text"]
 
         #before repeating for other ids, return the output if it exists
