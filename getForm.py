@@ -552,7 +552,7 @@ def get_latin_form(word = "NULL", id = "NULL", case = "NULL",
     else:
         output = "ERROR: Nothing found with those parameters"
     return output
-        
+
 
 if(__name__ == '__main__'):
     #os.chdir("Individual/Leipzig-Research/Lemmatizer-GRK")

@@ -1,11 +1,36 @@
 from flask import Flask, render_template, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
 from getForm import get_latin_form, get_greek_form
-
+from flask_limiter import Limiter
+from apscheduler.schedulers.background import BackgroundScheduler
 app = Flask(__name__)
-    #CORS sets what can access it outside of same host: have origins just be the online app url and the phone app url (if we make one)
+    #CORS sets what can access it outside of same host:
+    #have origins just be the online app url and the phone app url (if we make one)
 valid_origins = ['http://localhost:5500']
-# CORS(app, resources={r'/*': {'origins': valid_origins}})
+CORS(app, origins=valid_origins)
+    #limit is for preventing spamming from one IP address
+limiter = Limiter(
+    app,
+    key_func=lambda: request.remote_addr,
+    default_limits=["1000 per day", "100 per hour"]
+)
+    #global limit per day so that I don't brick my machine with requests
+global_limit = {"requests": 0, "limit": 1000000}
+def reset_global_limit():
+    global_limit["requests"] = 0
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=reset_global_limit, trigger="interval", days =1)
+scheduler.start()
+@app.before_request
+def global_rate_limit():
+    if(global_limit["requests"] > global_limit["limit"]):
+        return make_response(jsonify({'error': 'Too Many Requests'}), 429)
+    else:
+        global_limit["requests"] += 1
+
+        
+    #on to actual code
 abbreviations = {
     # Part of Speech
     'NULL': '',
@@ -108,7 +133,6 @@ def home():
     return render_template("index.html")
 
 @app.route('/form', methods=['GET', 'POST'])
-@cross_origin(origins = valid_origins)
 def form():
     if request.method == "POST":
 
@@ -124,7 +148,7 @@ def form():
         else:
             print(type(request.form))
             return render_template("form.html", query="", arrow="", result="")
-    
+
 """
 result = get_latin_form(request.form["wd"], case = request.form["case"], number = request.form["number"], gender = request.form["gender"],
         mood = request.form["mood"], person = request.form["person"], tense = request.form["tense"],
