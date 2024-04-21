@@ -10,22 +10,25 @@ public class client
         String ipAddress = inFromUser.readLine();
         try 
         {
-            Socket clientSocket = new Socket(ipAddress, 8099);
-            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-            while (true)
+            Socket clientSocket = new Socket(ipAddress, 8399);
+            OutputStreamWriter outToServer = new OutputStreamWriter(clientSocket.getOutputStream(), "UTF-8");       
+            BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), "UTF-8"));     
+        while (true)
             {
-                BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                String response = inFromServer.readLine();
-                
-                if (response.equals("close"))
+                String response = null;
+                while (!inFromServer.ready()){
+                    Thread.sleep(100);  
+                }
+                response = inFromServer.readLine();
+                if (response.equals("close") || response.equals("close \n"))
                 {
                     break;
                 }
                 System.out.println("From server: " + response);
                 System.out.println("Input data for server: ");
                 String serverInput = inFromUser.readLine();
-                outToServer.writeBytes(serverInput);
-                
+                outToServer.write(serverInput);
+                outToServer.flush();
             }
             clientSocket.close();
         }
