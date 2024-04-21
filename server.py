@@ -219,7 +219,12 @@ while True:
         
         client_socket.sendall(response.encode())
         print('Sent respsonse: {}'.format(response))
-
+        finalMessage = "Thank you for using get_form for Latin! Goodbye!"
+        client_socket.sendall(finalMessage.encode())
+        print('Sent message: {}'.format(finalMessage))
+        closeMessage = "close"
+        client_socket.sendall(closeMessage.encode())
+        print('Sent message: {}'.format(closeMessage))
     finally:
         # Clean up the connection
         client_socket.close()
