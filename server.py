@@ -106,18 +106,29 @@ while True:
                 client_socket.sendall(message.encode())
                 data = client_socket.recv(1024)
             word = verb
-            # Process the verb
-            message = 'You selected verb. Please enter the mood (indicative, subjunctive, imperative) Use - for any:'
+
+            # Receive person from the client
+            message = 'You selected verb. Please enter the person (first, second, third) Use - for any:'
             client_socket.sendall(message.encode())
-            # Receive mood from the client
-            mood = client_socket.recv(1024)
-            while (mood.lower() not in ['indicative', 'subjunctive', 'imperative']) and (mood.lower() not in ['i', 's', 'm', '-']):
-                message = "Please enter a valid mood: indicative, subjunctive, imperative"
+            person = client_socket.recv(1024)
+            while (person.lower() not in ['first', 'second', 'third']) and (person.lower() not in ['1', '2', '3', '-']):
+                message = "Please enter a valid person: first, second, third"
                 client_socket.sendall(message.encode())
-                mood = client_socket.recv(1024)
-            mood = mood.lower()
-            if mood == '-':
-                mood = 'NULL'
+                person = client_socket.recv(1024)
+            person = person.lower()
+            if person == '-':
+                person = 'NULL'
+
+            message = 'You selected verb. Please enter the number (singular, plural) Use - for any:'
+            # Receive number from the client
+            number = client_socket.recv(1024)
+            while (number.lower() not in ['singular', 'plural']) and (number.lower() not in ['s', 'p', '-']):
+                message = "Please enter a valid number: singular or plural"
+                client_socket.sendall(message.encode())
+                number = client_socket.recv(1024)
+            number = number.lower()
+            if number == '-':
+                number = 'NULL'
 
             # Receive tense from the client
             message = 'You selected verb. Please enter the tense (present, imperfect, future, perfect, pluperfect, future perfect) Use - for any:'
@@ -142,28 +153,20 @@ while True:
             voice = voice.lower()
             if voice == '-':
                 voice = 'NULL'
-           
-            message = 'You selected verb. Please enter the number (singular, plural) Use - for any:'
-            # Receive number from the client
-            number = client_socket.recv(1024)
-            while (number.lower() not in ['singular', 'plural']) and (number.lower() not in ['s', 'p', '-']):
-                message = "Please enter a valid number: singular or plural"
-                client_socket.sendall(message.encode())
-                number = client_socket.recv(1024)
-            number = number.lower()
-            if number == '-':
-                number = 'NULL'
-            # Receive person from the client
-            message = 'You selected verb. Please enter the person (first, second, third) Use - for any:'
+
+            message = 'You selected verb. Please enter the mood (indicative, subjunctive, imperative) Use - for any:'
             client_socket.sendall(message.encode())
-            person = client_socket.recv(1024)
-            while (person.lower() not in ['first', 'second', 'third']) and (person.lower() not in ['1', '2', '3', '-']):
-                message = "Please enter a valid person: first, second, third"
+            # Receive mood from the client
+            mood = client_socket.recv(1024)
+            while (mood.lower() not in ['indicative', 'subjunctive', 'imperative']) and (mood.lower() not in ['i', 's', 'm', '-']):
+                message = "Please enter a valid mood: indicative, subjunctive, imperative"
                 client_socket.sendall(message.encode())
-                person = client_socket.recv(1024)
-            person = person.lower()
-            if person == '-':
-                person = 'NULL'
+                mood = client_socket.recv(1024)
+            mood = mood.lower()
+            if mood == '-':
+                mood = 'NULL'
+        #END VERB
+
         elif pos == 'a':
             message = 'You selected adjective. Please enter an adjective:'
             client_socket.sendall(message.encode())
@@ -175,9 +178,39 @@ while True:
                 data = client_socket.recv(1024)
             word = verb
             # adj case
-
-        
-
+            message = 'You selected adjective. Please enter the case (nominative, genitive, dative, accusative, ablative) Use - for any:'
+            client_socket.sendall(message.encode())
+            # Receive case from the client
+            case = client_socket.recv(1024)
+            while (case.lower() not in ['nominative', 'genitive', 'dative', 'accusative', 'ablative']) and (case.lower() not in ['n', 'g', 'd', 'a', 'b', '-']):
+                message = "Please enter a valid case: nominative, genitive, dative, accusative, ablative"
+                client_socket.sendall(message.encode())
+                case = client_socket.recv(1024)
+            case = case.lower()
+            if case == '-':
+                case = 'NULL'
+            # now number 
+            message = 'You selected adjective. Please enter the number (singular, plural) Use - for any:'
+            # Receive number from the client
+            number = client_socket.recv(1024)
+            while (number.lower() not in ['singular', 'plural']) and (number.lower() not in ['s', 'p', '-']):
+                message = "Please enter a valid number: singular or plural"
+                client_socket.sendall(message.encode())
+                number = client_socket.recv(1024)
+            number = number.lower()
+            if number == '-':
+                number = 'NULL'
+            # Receive gender from the client
+            message = 'You selected adjective. Please enter the gender (masculine, feminine, neuter) Use - for any:'
+            client_socket.sendall(message.encode())
+            gender = client_socket.recv(1024)
+            while (gender.lower() not in ['masculine', 'feminine', 'neuter']) and (gender.lower() not in ['m', 'f', 'n', '-']):
+                message = "Please enter a valid gender: masculine, feminine, neuter"
+                client_socket.sendall(message.encode())
+                gender = client_socket.recv(1024)
+            gender = gender.lower()
+            if gender == '-':
+                gender = "NULL"
 
         # Send a response back to the client
         response = get_latin_form(word=word, case=case, number=number, 
