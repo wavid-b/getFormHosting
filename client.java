@@ -14,13 +14,20 @@ public class client
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             while (true)
             {
+                BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                String response = inFromServer.readLine();
+                
+                if (response.equals("close"))
+                {
+                    break;
+                }
+                System.out.println("From server: " + response);
                 System.out.println("Input data for server: ");
                 String serverInput = inFromUser.readLine();
                 outToServer.writeBytes(serverInput);
-                BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                String response = inFromServer.readLine();
-                System.out.println("From server: " + response);
+                
             }
+            clientSocket.close();
         }
         catch (Exception e)
         {

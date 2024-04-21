@@ -23,9 +23,7 @@ while True:
 
     try:
         # Send the first message to the client
-        message = '''Welcome to get_form for Latin! 
-        Please enter a part of speech: noun, verb, or adjective
-        You can also use the abbreviations: n, v, or a
+        message = '''Welcome to get_form for Latin! Please enter a part of speech: noun, verb, or adjective.
      '''
         client_socket.sendall(message.encode())
         print('Sent message: {}'.format(message))
@@ -38,7 +36,7 @@ while True:
         while not data.isalpha() or data[0].lower() not in ['n', 'v', 'a']:
             message = "Please enter a valid part of speech: noun, verb, or adjective"
             client_socket.sendall(message.encode())
-            data = client_socket.recv(1024)
+            data = client_socket.recv(1024).decode()
         # save POS as first char and send next messages based on POS
         pos = data[0].lower()
         word = 'NULL'
@@ -53,12 +51,12 @@ while True:
             message = 'You selected noun. Please enter a noun:'
             client_socket.sendall(message.encode())
             # Receive noun from the client
-            noun = client_socket.recv(1024)
+            noun = client_socket.recv(1024).decode()
 
             while not  noun.isalpha():
                 message = "Please enter a valid noun: only alphabetic characters are allowed"
                 client_socket.sendall(message.encode())
-                data = client_socket.recv(1024)
+                data = client_socket.recv(1024).decode()
             word = noun
             # Process the noun
             message = 'You selected noun. Please enter the case (nominative, genitive, dative, accusative, ablative) Use - for any:'
@@ -68,7 +66,7 @@ while True:
             while (case.lower() not in ['nominative', 'genitive', 'dative', 'accusative', 'ablative']) and (case.lower() not in ['n', 'g', 'd', 'a', 'b', '-']):
                 message = "Please enter a valid case: nominative, genitive, dative, accusative, ablative"
                 client_socket.sendall(message.encode())
-                case = client_socket.recv(1024)
+                case = client_socket.recv(1024).decode()
             case = case.lower()
             if case == '-':
                 case = 'NULL'
