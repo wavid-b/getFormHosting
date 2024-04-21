@@ -10,7 +10,7 @@ public class client
         String ipAddress = inFromUser.readLine();
         try 
         {
-            Socket clientSocket = new Socket(ipAddress, 8399);
+            Socket clientSocket = new Socket(ipAddress, 8099);
             OutputStreamWriter outToServer = new OutputStreamWriter(clientSocket.getOutputStream(), "UTF-8");       
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), "UTF-8"));     
         while (true)

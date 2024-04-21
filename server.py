@@ -2,7 +2,7 @@ import socket
 from getForm import get_latin_form
 
 HOST = 'localhost'
-PORT = 8399
+PORT = 8099
 # Create a TCP/IP socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -31,7 +31,6 @@ while True:
         # Receive data from the client
         data = client_socket.recv(1024).decode()
         # Strip whitespaces from data
-        print ('Received data: {}'.format(data))
         data = data.strip()
         #make sure data only has alphabetic characters
         while not data.isalpha() or data[0].lower() not in ['n', 'v', 'a']:
@@ -49,10 +48,8 @@ while True:
         voice = 'NULL'
         person = 'NULL'
         print ('Received POS: {}'.format(pos))
-
         if pos == 'n':
             message = 'You selected noun. Please enter a noun: \n'
-            print('Sent message: {}'.format(message))
 
             client_socket.sendall(message.encode())
             # Receive noun from the client
@@ -75,7 +72,6 @@ while True:
             case = case.lower()
             if case == '-':
                 case = 'NULL'
-            print('Received case: {}'.format(case))
             #  number 
             message = 'You selected noun. Please enter the number (singular, plural) Use - for any: \n'
             client_socket.sendall(message.encode())
@@ -221,16 +217,21 @@ while True:
             gender = gender.lower()
             if gender == '-':
                 gender = "NULL"
-
+        #END ADJECTIVE
+        print("generating response ...")
         # Send a response back to the client
         response = get_latin_form(word=word, case=case, number=number, 
                                   gender=gender, mood=mood, tense=tense, 
-                                  voice=voice, person=person) + '\t Input "close" to break connection\n'
-        
+                                  voice=voice, person=person) + ' Input "close" to break connection\n'
+        print("response generated: ", response)
         client_socket.sendall(response.encode())
+        response = client_socket.recv(1024).decode()
+
         closeMessage = "close\n"
         client_socket.sendall(closeMessage.encode())
         print('Sent message: {}'.format(closeMessage))
+        client_socket.close()
+        break; 
     finally:
         # Clean up the connection
         client_socket.close()
