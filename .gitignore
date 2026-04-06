@@ -3,3 +3,7 @@
 __pycache__/getForm.cpython-311.pyc
 __pycache__/getForm.cpython-311.pyc
 __pycache__/
+node_modules/
+local.settings.json
+package-lock.json
+package.json

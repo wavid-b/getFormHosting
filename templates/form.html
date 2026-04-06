@@ -1,8 +1,8 @@
 <html>
 <head>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="../static/app.js"></script>
-  <link rel="stylesheet" href="../static/style.css">
+  <script src="static/app.js"></script>
+  <link rel="stylesheet" href="static/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +10,7 @@
   <title>mare // latin lemmatizer</title>
 </head>
 
-<a href = "/" class = "homeLink"><h1 class="mareTitle">mare</h1><h1 style = "display: inline;"> 🌊</h1></a>
+<a href = "{{ url_for('home') }}" class = "homeLink"><h1 class="mareTitle">mare</h1><h1 style = "display: inline;"> 🌊</h1></a>
 <div class = "formDiv">
 <h2>Latin Lemmatizer</h2>
 <form id = "lemmatizerForm" action="#" method = "post">
