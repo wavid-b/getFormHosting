@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from getForm import get_latin_form, get_greek_form
+from getForm import get_latin_form
 import azure.functions as func
 from azure.functions import WsgiMiddleware
 
