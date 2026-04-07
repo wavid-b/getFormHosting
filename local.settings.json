@@ -1,7 +1,7 @@
 {
-  "IsEncrypted": false,
+  "IsEncrypted": true,
   "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true"
-  }
+    "FUNCTIONS_WORKER_RUNTIME": "CfDJ8KPkS3FJhgBKo3iF/sc21MfWJkW2TLjIdcO4Dos7C2XyAeQh6PjYLGwcgKE+0blx63rM6vUpoUozv31VVFBDi8BsxZBS7A0JgZThO77VBreNiq5B+myrYm+MikT2rCuVKg=="
+  },
+  "ConnectionStrings": {}
 }
